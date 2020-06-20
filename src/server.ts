@@ -1,10 +1,22 @@
-import express from 'express'
-import '@controllers/UsersController'
+import http from 'http'
+const { handleError, normalizePort, onError } = require('../helpers/error')
+const app = require('./bin/app')
+const debug = require('debug')('nodestr:server')
 
-const app = express()
+const port = normalizePort(process.env.PORT || 3000)
+app.set('port', port)
 
-app.get('/', (request, response) => {
-  return response.json({ message: 'Hello World' })
-})
+const server = http.createServer(app)
 
-app.listen(3333)
+app.use((err: any, req: any, res: any, next: any) => { handleError(err, res) })
+
+server.listen(port, () => { console.log('API rodando na port ' + port) })
+server.on('error', onError)
+server.on('listening', onListening)
+
+function onListening () {
+  const addr = server.address()
+  const bind = typeof addr === 'string' ? 'pipe ' + addr : 'port ' + addr.port
+
+  debug('Listening on ' + bind)
+}
