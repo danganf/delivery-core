@@ -1,9 +1,10 @@
 import http from 'http'
-const { handleError, normalizePort, onError } = require('../helpers/error')
-const app = require('./bin/app')
-const debug = require('debug')('nodestr:server')
+import app from './bin/app'
+import { handleError, normalizePort, onError } from './helpers/error'
 
-const port = normalizePort(process.env.PORT || 3000)
+const debug = require('debug')('nodestr:server')
+const port = normalizePort()
+
 app.set('port', port)
 
 const server = http.createServer(app)

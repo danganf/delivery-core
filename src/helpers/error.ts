@@ -1,4 +1,7 @@
 class ErrorHandler extends Error {
+  public statusCode: any;
+  public message: string;
+
   constructor (statusCode: any, message: string) {
     super()
     this.statusCode = statusCode
@@ -6,7 +9,7 @@ class ErrorHandler extends Error {
   }
 }
 
-const handleError = (err: { statusCode: any; message: any }, res: { status: (arg0: any) => { (): any; new(): any; json: { (arg0: { status: string; statusCode: any; message: any }): void; new(): any } } }) => {
+const handleError = (err: { statusCode: any; message: string }, res: { status: (arg0: any) => { (): any; new(): any; json: { (arg0: { status: string; statusCode: any; message: any }): void; new(): any } } }) => {
   const { statusCode, message } = err
   res.status(statusCode).json({
     status: 'error',
@@ -43,7 +46,7 @@ const onError = (error: { syscall: string; port: string; code: any }) => {
   }
 }
 
-module.exports = {
+export {
   ErrorHandler,
   handleError,
   normalizePort,

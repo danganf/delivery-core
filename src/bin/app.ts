@@ -1,15 +1,9 @@
-import express from 'express'
 import bodyParser from 'body-parser'
+import register from './register-routes'
 
 require('custom-env').env(true)
 
-const app = express()
+register.use(bodyParser.json({ limit: '5mb' }))
+register.use(bodyParser.urlencoded({ extended: false }))
 
-app.use(bodyParser.json({ limit: '5mb' }))
-app.use(bodyParser.urlencoded({ extended: false }))
-
-app.get('/', (request, response) => {
-  return response.json({ message: 'Hello World' })
-})
-
-module.exports = app
+export default register

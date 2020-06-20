@@ -10,11 +10,12 @@
     "typeRoots": [
       "./node_modules/@types",
       "./src/@types"
-    ],                          
+    ],
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,                  
     "resolveJsonModule": true,
     "experimentalDecorators": true,        
-    "emitDecoratorMetadata": true,         
+    "emitDecoratorMetadata": true,
     "skipLibCheck": true,                     
     "forceConsistentCasingInFileNames": true,
     "baseUrl": ".",
