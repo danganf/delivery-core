@@ -21,9 +21,10 @@
     "baseUrl": ".",
     "paths": {
       "@controllers/*": ["./src/controllers/*"],
+      "@repositories/*": ["./src/repositories/*"],
       "@models/*": ["./src/models/*"],
-      "@views/*": ["./src/views/*"],
-      "@config/*": ["./src/config/*"]
+      "@routes/*": ["./src/routes/*"],
+      "@config/*": ["src/config/*"]
     }
   },
   "include": [

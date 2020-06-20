@@ -1,0 +1,12 @@
+{
+    "development": {
+        "mongodb":{
+            "string": "mongodb://localhost:27017/delivery"
+        }    
+    },
+    "production": {
+        "mongodb":{
+            "string": "mongodb://localhost:27017/delivery"
+        }  
+    }
+  }
