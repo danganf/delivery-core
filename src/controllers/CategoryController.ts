@@ -12,8 +12,7 @@ const get = async (req: Request, res: Response, next: NextFunction) => {
 
 const post = async (req: Request, res: Response, next: NextFunction) => {
   try {
-    console.log(repository)
-
+    await repository.create(req.body)
     res.status(201).send({ message: 'Registro salvo com sucesso' })
   } catch (e) {
     res.status(400).send({ message: 'Falha ao salvar o registro', data: e })

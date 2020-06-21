@@ -1,12 +1,15 @@
 export abstract class BaseRepository {
-  public model: object;
+  public Model: object;
 
   constructor (model: object) {
-    this.model = model
+    this.Model = model
   }
 
-  create (item: object): Promise<boolean> {
-    throw new Error('Method not implemented.')
+  async create (item: object): Promise<boolean> {
+    console.log(this.Model)
+    const model = new this.Model(item)
+    const res = await model.save()
+    return true
   }
 
   update (id: string, item: object): Promise<boolean> {
