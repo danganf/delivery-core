@@ -1,5 +1,5 @@
 import http from 'http'
-import app from './bin/app'
+import app from './bin/register-routes'
 import { handleError, normalizePort, onError } from './helpers/error'
 
 const debug = require('debug')('nodestr:server')

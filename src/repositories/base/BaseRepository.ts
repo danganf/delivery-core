@@ -1,15 +1,15 @@
-import mongoose from '../../bin/db'
-import { IWrite } from '@repositories/interfaces/IWrite'
-import { IRead } from '@repositories/interfaces/IRead'
+export abstract class BaseRepository {
+  public model: object;
 
-export abstract class BaseRepository<T> implements IWrite<T>, IRead<T> {
-  public readonly _db: mongoose;
+  constructor (model: object) {
+    this.model = model
+  }
 
-  create (item: T): Promise<boolean> {
+  create (item: object): Promise<boolean> {
     throw new Error('Method not implemented.')
   }
 
-  update (id: string, item: T): Promise<boolean> {
+  update (id: string, item: object): Promise<boolean> {
     throw new Error('Method not implemented.')
   }
 
@@ -17,11 +17,11 @@ export abstract class BaseRepository<T> implements IWrite<T>, IRead<T> {
     throw new Error('Method not implemented.')
   }
 
-  find (item: T): Promise<T[]> {
+  find (item: []): Promise<[]> {
     throw new Error('Method not implemented.')
   }
 
-  findOne (id: string): Promise<T> {
+  findOne (id: string): Promise<object> {
     throw new Error('Method not implemented.')
   }
 }
