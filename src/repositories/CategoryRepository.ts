@@ -1,6 +1,10 @@
 import { BaseRepository } from '@repositories/base/BaseRepository'
-import { Category } from '@models/Category'
+import Category from '@models/Category'
 
-export class CategoryRepository extends BaseRepository<Category> {
-
+class CategoryRepository extends BaseRepository {
+  constructor () {
+    super(Category)
+  }
 }
+
+export default new CategoryRepository()
