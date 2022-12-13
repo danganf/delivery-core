@@ -41,7 +41,7 @@
   "dependencies": {
     "body-parse": "^0.1.0",
     "custom-env": "^2.0.1",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "http": "0.0.1-security",
     "mongoose": "^5.9.19"
   }
